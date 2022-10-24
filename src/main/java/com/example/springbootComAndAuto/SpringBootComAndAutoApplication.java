@@ -21,10 +21,7 @@ public class SpringBootComAndAutoApplication {
 //		SpringApplication.run(SpringBootComAndAutoApplication.class, args);
 		//create applicationContext to container all dependency class or bean
 		ApplicationContext context=SpringApplication.run(SpringBootComAndAutoApplication.class,args);
-//		SimpleBean simpleBean = context.getBean(SimpleBean.class);
-//
-		DatabaseConnector databaseConnector = context.getBean(DatabaseConnector.class);
-		databaseConnector.connect();
+
 	}
 
 }
