@@ -9,25 +9,11 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 
+@Component
 public class Girl {
-
-
-   private String name;
-
-   public Girl(String name)
+   @Override
+   public String toString()
    {
-      this.name= name;
-
+      return "Girl";
    }
-   public String getName() {
-      return name;
-   }
-
-   public void setName(String name) {
-      this.name = name;
-   }
-
-
-
-
 }
