@@ -1,5 +1,6 @@
 package com.example.springbootComAndAuto;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,34 +9,15 @@ import javax.xml.crypto.Data;
 @Configuration
 public class AppConfig {
 
-
-    @Bean("mysqlConnector")
-    DatabaseConnector mysqlConfigure() {
-        DatabaseConnector mySqlConnector = new MySqlConnector();
-        mySqlConnector.setUrl("jdbc:mysql://host1:33060/loda");
-        // Set username, password, format, v.v...
-        return mySqlConnector;
-    }
-
-    @Bean("mongodbConnector")
-    DatabaseConnector mongodbConfigure() {
-        DatabaseConnector mongoDbConnector = new MongoDbConnector();
-        mongoDbConnector.setUrl("mongodb://mongodb0.example.com:27017/loda");
-        // Set username, password, format, v.v...
-        return mongoDbConnector;
-    }
-
-    @Bean("postgresqlConnector")
-    DatabaseConnector postgresqlConfigure(){
-        DatabaseConnector postgreSqlConnector = new PostgresSqlConnector();
-        postgreSqlConnector.setUrl("postgresql://localhost/loda");
-        // Set username, password, format, v.v...
-        return postgreSqlConnector;
-    }
+    @Value("${mysql.url}")
+    String mysqlUrl;
 
     @Bean
-    SimpleBean simpleBeanConfigure()
+    DatabaseConnector mysqlConfigure()
     {
-        return new SimpleBean("minh");
+        DatabaseConnector connector = new MySqlConnector();
+        System.out.println("mysql url "+mysqlUrl);
+        connector.setUrl(mysqlUrl);
+        return connector;
     }
 }

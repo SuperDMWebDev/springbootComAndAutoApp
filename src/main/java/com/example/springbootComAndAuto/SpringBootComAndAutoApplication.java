@@ -23,15 +23,8 @@ public class SpringBootComAndAutoApplication {
 		ApplicationContext context=SpringApplication.run(SpringBootComAndAutoApplication.class,args);
 //		SimpleBean simpleBean = context.getBean(SimpleBean.class);
 //
-//		System.out.println("simple bean: " + simpleBean.toString());
-		DatabaseConnector mysql = (DatabaseConnector) context.getBean("mysqlConnector");
-		mysql.connect();
-
-		DatabaseConnector mongodb = (DatabaseConnector) context.getBean("mongodbConnector");
-		mongodb.connect();
-
-		DatabaseConnector postgresql = (DatabaseConnector) context.getBean("postgresqlConnector");
-		postgresql.connect();
+		DatabaseConnector databaseConnector = context.getBean(DatabaseConnector.class);
+		databaseConnector.connect();
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.example.springbootComAndAuto;
 
+import org.springframework.context.annotation.Bean;
+
 public abstract class DatabaseConnector {
     private String url;
 
