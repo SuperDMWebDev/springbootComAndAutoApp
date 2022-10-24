@@ -3,6 +3,9 @@ package com.example.springbootComAndAuto;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import java.lang.module.Configuration;
 
 // springbootapplication to indicate which is main function
 @SpringBootApplication
@@ -25,6 +28,9 @@ public class SpringBootComAndAutoApplication {
 
 		System.out.println("Girl outfit" + girl.outfit);
 
+		System.out.println("before destroy bean");
+		((ConfigurableApplicationContext) context).getBeanFactory().destroyBean(girl);
+		System.out.println("after destory bean");
 
 
 	}
