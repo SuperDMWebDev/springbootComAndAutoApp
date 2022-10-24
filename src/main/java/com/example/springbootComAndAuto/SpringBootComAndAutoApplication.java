@@ -11,26 +11,19 @@ import java.lang.module.Configuration;
 @SpringBootApplication
 public class SpringBootComAndAutoApplication {
 
+	static int length = 10;
 	public static void main(String[] args) {
 		System.out.println("Start spring app");
 //		SpringApplication.run(SpringBootComAndAutoApplication.class, args);
 		//create applicationContext to container all dependency class or bean
 		ApplicationContext context=SpringApplication.run(SpringBootComAndAutoApplication.class,args);
-		Outfit outfit = context.getBean(Outfit.class);
 
-		System.out.println("Instance: "+outfit);
+		//get bean service
+		GirlService girlService = context.getBean(GirlService.class);
 
-		outfit.wear();
+		Girl girl = girlService.getRandomGirl(length);
 
-		Girl girl = context.getBean(Girl.class);
-
-		System.out.println("Girl instance" + girl);
-
-		System.out.println("Girl outfit" + girl.outfit);
-
-		System.out.println("before destroy bean");
-		((ConfigurableApplicationContext) context).getBeanFactory().destroyBean(girl);
-		System.out.println("after destory bean");
+		System.out.println(girl);
 
 
 	}
