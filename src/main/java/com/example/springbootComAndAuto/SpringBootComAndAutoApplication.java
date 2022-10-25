@@ -20,23 +20,7 @@ public class SpringBootComAndAutoApplication {
 //		SpringApplication.run(SpringBootComAndAutoApplication.class, args);
 		//create applicationContext to container all dependency class or bean
 		ApplicationContext context=SpringApplication.run(SpringBootComAndAutoApplication.class,args);
-		// get bean userRepository
-		UserRepository userRepository = context.getBean(UserRepository.class);
-
-		// findall userrepostiroy and print it in each line
-		userRepository.findAll().forEach(System.out::println);
-		System.out.println("Find user with agi between 25 - 30 ");
-		userRepository.findAllByAgiBetween(25,30).forEach(System.out::println);
-
-
-		System.out.println("========================");
-		System.out.println("Find User with agi greater than 97");
-		userRepository.findAllByAgiGreaterThan(97).forEach(System.out::println);
-
-		System.out.println("=========");
-		System.out.println("Find User with atkk =80");
-		userRepository.findAllByAtk(80).forEach(System.out::println);
-
+		
 	}
 
 }
