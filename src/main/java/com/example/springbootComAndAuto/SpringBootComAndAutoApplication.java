@@ -25,22 +25,18 @@ public class SpringBootComAndAutoApplication {
 
 		// findall userrepostiroy and print it in each line
 		userRepository.findAll().forEach(System.out::println);
+		System.out.println("Find user with agi between 25 - 30 ");
+		userRepository.findAllByAgiBetween(25,30).forEach(System.out::println);
 
-//		 return entity pass in => return User
-		User newUser= new User();
-		System.out.println("newUser " + newUser);
-//		newUser.setId(0);
-		User user = userRepository.save(newUser);
-//		int userId = user.getId();
-//		System.out.println("user has id "+ user.getId());
-//		user.setAgi(1);
-//
-//		// findById with get to get element
-//		User user2 = userRepository.findById(userId).get();
-//		System.out.println("User " + user);
-//		System.out.println("User2" + user2);
-//
-//		userRepository.save(user);
+
+		System.out.println("========================");
+		System.out.println("Find User with agi greater than 97");
+		userRepository.findAllByAgiGreaterThan(97).forEach(System.out::println);
+
+		System.out.println("=========");
+		System.out.println("Find User with atkk =80");
+		userRepository.findAllByAtk(80).forEach(System.out::println);
+
 	}
 
 }
