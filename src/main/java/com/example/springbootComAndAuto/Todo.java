@@ -6,8 +6,9 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Todo {
-    public String title;
-    public String detail;
+    private int id;
+    private String title;
+    private String detail;
 
     @Override
     public String toString() {

@@ -10,4 +10,5 @@ class SpringBootComAndAutoApplicationTests {
 	void contextLoads() {
 	}
 
+
 }
